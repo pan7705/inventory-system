@@ -52,6 +52,8 @@ class ItemController extends Controller
 
     public function edit(Item $item)
     {
+        $this->authorize('update', $item);
+
         // dd($type);
         $types=Type::all();
         $colors=Color::all();
