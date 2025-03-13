@@ -15,6 +15,19 @@
                 </div>
 
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <form action="" method="GET">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="search" class="form-control" placeholder="Search item" value="{{ request()->search }}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                                        <button class="btn btn-outline-danger" type="button" onclick="window.location.href='{{ route('home') }}'">X</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <table class="table table-striped">
                         <thead>
                             <tr>

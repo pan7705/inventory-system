@@ -15,6 +15,15 @@ class Item extends Model
         'type_id',
     ];
 
+    public function scopeSearch($query, $search = null)
+    {
+        $query->when($search, function ($query, $search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        });
+
+        return $query;
+    }
+
     public function color(){
         return $this->belongsTo(Color::class);
     }
