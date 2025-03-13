@@ -26,6 +26,7 @@ class HomeController extends Controller
     {
         $search = $request->search ?? null;
 
+        //another way
         // $items = Item::where(function ($query) use ($search) {
         //     $query->when($search, function ($query, $search) {
         //         $query->where('name', 'like', '%' . $search . '%');
