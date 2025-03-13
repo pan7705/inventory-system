@@ -69,10 +69,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                        </div>
-                                        </td>
+                                            </div>
                                         </tr>
-                         @empty
+                            @empty
                         <tr colspan='4'>No type found</tr>
                         @endforelse
                         </tbody>
