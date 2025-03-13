@@ -10,9 +10,16 @@ class Item extends Model
 
     protected $fillable = [
         'name',
+        'quantity',
+        'color_id',
+        'type_id',
     ];
 
     public function color(){
         return $this->belongsTo(Color::class);
+    }
+
+    public function type(){
+        return $this->belongsTo(Type::class);
     }
 }
