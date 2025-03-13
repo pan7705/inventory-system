@@ -6,11 +6,11 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Color Management') }}
+                        {{ __('Type Management') }}
                         <div class="card-toolbar ">
                             <div class="d-grid gap-2 col-6 mx-auto">
                                 <a href="{{ route('home') }}" class="btn btn-primary">Home</a>
-                                <a href="{{ route('color.create') }}" class="btn btn-primary">Add new Color</a>
+                                <a href="{{ route('type.create') }}" class="btn btn-primary">Add new Type</a>
                             </div>
                         </div>
 
@@ -25,40 +25,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($colors as $color)
+                                    @forelse ($types as $type)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $color->name }}</td>
-                                            <td>{{ $color->created_at->diffForHumans() }}</td>
+                                            <td>{{ $type->name }}</td>
+                                            <td>{{ $type->created_at->diffForHumans() }}</td>
                                             <td>
-                                                <a href="{{ route('color.edit', $color) }}"
+                                                <a href="{{ route('type.edit', $type) }}"
                                                     class="btn btn-sm btn-primary">Edit</a>
                                                 <button type="button" class="btn btn-sm btn-outline-danger"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModal{{ $color->id }}">
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModal{{ $type->id }}">
                                                     Delete
                                                 </button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="deleteModal{{ $color->id }}" tabindex="-1"
-                                                    aria-labelledby="deleteModalLabel{{ $color->id }}"
+                                                <div class="modal fade" id="deleteModal{{ $type->id }}" tabindex="-1"
+                                                    aria-labelledby="deleteModalLabel{{ $type->id }}"
                                                     aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title"
-                                                                    id="deleteModalLabel{{ $color->id }}">Confirm Delete
+                                                                    id="deleteModalLabel{{ $type->id }}">Confirm Delete
                                                                 </h5>
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body text-center">
-                                                                Are you sure you want to delete this color
-                                                                {{ $color->name }}?
+                                                                Are you sure you want to delete this type
+                                                                {{ $type->name }}?
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Cancel</button>
-                                                                <form action="{{ route('color.destroy', $color) }}"
+                                                                <form action="{{ route('type.destroy', $type) }}"
                                                                     method="POST" class="d-inline">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -69,11 +69,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                        </div>
-                        </td>
-                        </tr>
-                    @empty
-                        <tr colspan='4'>No color found</tr>
+                                        </div>
+                                        </td>
+                                        </tr>
+                         @empty
+                        <tr colspan='4'>No type found</tr>
                         @endforelse
                         </tbody>
                         </table>
@@ -82,7 +82,7 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-12">
-                                {{ $colors->withQueryString()->links() }}
+                                {{ $types->withQueryString()->links() }}
                             </div>
                         </div>
                     </div>

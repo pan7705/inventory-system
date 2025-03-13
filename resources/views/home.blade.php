@@ -9,6 +9,7 @@
                     {{ __('Dashboard') }}
                     <div class="card-toolbar">
                         <a href="{{ route('color.index') }}" class="btn btn-primary">Create Color</a>
+                        <a href="{{ route('type.index') }}" class="btn btn-primary">Create Type</a>
                     </div>
                 </div>
 
