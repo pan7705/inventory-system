@@ -3,12 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Observers\ItemObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+
+#[ObservedBy(ItemObserver::class)]
+
 
 class Item extends Model
 {
     protected $table = 'items';
 
     protected $fillable = [
+        'user_id',
+        'uuid',
         'name',
         'quantity',
         'color_id',
@@ -30,5 +37,9 @@ class Item extends Model
 
     public function type(){
         return $this->belongsTo(Type::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
