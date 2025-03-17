@@ -34,6 +34,7 @@ class ItemController extends Controller
 
         //lepas dah validate, kalau input betul, baru store data dalam database
         Item::create([
+            'user_id' =>auth()->id(),
             'name' => $request->name,
             'quantity' => $request->quantity,
             'color_id' => $request->color,

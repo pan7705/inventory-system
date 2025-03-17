@@ -11,4 +11,9 @@ class ItemObserver
     {
         $item->uuid = Str::uuid();
     }
+
+    public function created(Item $item)
+    {
+        
+    }
 }
